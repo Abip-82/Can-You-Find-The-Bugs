@@ -11,7 +11,7 @@ def home():
         user =  users.get(username)
         if user and user["password"] == password:
             session["username"] = username
-            redirect(url_for(views.profile))
+            return redirect(url_for("views.profile"))
         error = "Invalid username or password"
         return render_template("base.html", error=error)
     return render_template("base.html")
