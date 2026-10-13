@@ -1,4 +1,6 @@
-"users":{
+# Intentionally hardcoded dummy data btw. If you intend to genuinely solve the lab, then tf are u doing here. Go solve the lab.
+
+users = {
     "bob":{
         "type":"student",
         "id" : 1,
@@ -12,15 +14,15 @@
         "password":"gary123"
     },
     "cynthia":{
-        "type":"teacher" ,
+        "type":"teacher",
         "id": 3,
-        "username" : "cynthia",
-        "password": "garchomp"
+        "username" : "oak",
+        "password": "spruce"
     },
     "yellow":{
         "type":"student",
         "id" : 4,
-        "username":"yellow"
+        "username":"yellow",
         "password":"lightening"
     }
 }
