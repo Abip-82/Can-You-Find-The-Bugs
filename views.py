@@ -19,4 +19,37 @@ def home():
 @views.route("/profile")
 def profile():
     username = session.get("username")
-    return username
+    if not username:
+        error="You are not logged in yet"
+        return render_template("base.html",error=error)
+    return render_template("profile.html" , username=username)
+
+@views.route("/logout")
+def logout():
+    username = session.get("username")
+    session.clear()
+    return render_template("base.html")
+
+@views.route("/assignments")
+def assignments():
+    username = session.get("username")
+    if not username:
+        error="You are not logged in yet"
+        return render_template("base.html",error=error)
+    return render_template("assignments.html")
+
+@views.route("/courses")
+def courses():
+    username=session.get("username")
+    if not username:
+        error="You are not logged in yet"
+        return render_template("base.html",error=error)
+    return render_template("courses.html")
+
+@views.route("/settings")
+def settings():
+    username=session.get("username")
+    if not username:
+        error="You are not logged in yet"
+        return render_template("base.html",error= error)
+    return render_template("settings.html")
