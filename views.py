@@ -11,6 +11,8 @@ def home():
         user =  users.get(username)
         if user and user["password"] == password:
             session["username"] = username
+            session["uid"] = user["uid"]
+            session["role"] = user["role"]
             return redirect(url_for("views.profile"))
         error = "Invalid username or password"
         return render_template("base.html", error=error)
@@ -49,7 +51,9 @@ def courses():
 @views.route("/settings")
 def settings():
     username=session.get("username")
+    uid = session.get("uid")
+    role = session.get("role")
     if not username:
         error="You are not logged in yet"
         return render_template("base.html",error= error)
-    return render_template("settings.html")
+    return render_template("settings.html", uid=uid , role=role)

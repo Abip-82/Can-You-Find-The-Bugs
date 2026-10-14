@@ -2,26 +2,26 @@
 
 users = {
     "bob":{
-        "type":"student",
-        "id" : 1,
+        "role":"student",
+        "uid" : 1,
         "username":"bob",
         "password":"bob" 
     },
     "gary":{
-        "type":"student",
-        "id": 2,
+        "role":"student",
+        "uid": 2,
         "username":"gary",
         "password":"gary123"
     },
-    "cynthia":{
-        "type":"teacher",
-        "id": 3,
+    "oak":{
+        "role":"teacher",
+        "uid": 3,
         "username" : "oak",
         "password": "spruce"
     },
     "yellow":{
-        "type":"student",
-        "id" : 4,
+        "role":"student",
+        "uid" : 4,
         "username":"yellow",
         "password":"lightening"
     }
