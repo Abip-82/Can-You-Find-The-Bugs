@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Profile</title>
+    <title>{% block title %} Student Profile {%endblock%}</title>
 </head>
 <body>
     <nav>
@@ -13,6 +13,8 @@
         <a href="/settings">Settings</a>
         <a href="/logout">Logout</a>
     </nav>
+    {%block content%}
     <h1>Welcome {{username}} !</h1>
+    {%endblock%}
 </body>
 </html>
