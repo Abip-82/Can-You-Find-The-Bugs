@@ -56,4 +56,4 @@ def settings():
     if not username:
         error="You are not logged in yet"
         return render_template("base.html",error= error)
-    return render_template("settings.html", uid=uid , role=role)
+    return render_template("settings.html", uid=uid , role=role, username=username)
