@@ -13,7 +13,10 @@ def home():
             session["username"] = username
             session["uid"] = user["uid"]
             session["role"] = user["role"]
-            return redirect(url_for("views.profile"))
+            if user["role"] == "teacher":
+                return redirect(url_for("views.teacher_profile"))
+            else:
+                return redirect(url_for("views.profile"))
         error = "Invalid username or password"
         return render_template("base.html", error=error)
     return render_template("base.html")
@@ -61,7 +64,12 @@ def settings():
 @views.route("/teacher/profile")
 def teacher_profile():
     username = session.get("username")
+    role = session.get("role")
     if not username:
         error = "You are not logged in yet"
         return render_template("base.html", error=error)
+    if role != "teacher":
+        error = "You are not a teacher bozo"
+        return render_template("base.html", error=error)
+    return f"Hello {username}"
     
