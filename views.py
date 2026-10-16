@@ -18,7 +18,7 @@ def home():
         return render_template("base.html", error=error)
     return render_template("base.html")
 
-@views.route("/profile")
+@views.route("/student/profile")
 def profile():
     username = session.get("username")
     if not username:
@@ -32,7 +32,7 @@ def logout():
     session.clear()
     return render_template("base.html")
 
-@views.route("/assignments")
+@views.route("/student/assignments")
 def assignments():
     username = session.get("username")
     if not username:
@@ -40,7 +40,7 @@ def assignments():
         return render_template("base.html",error=error)
     return render_template("assignments.html")
 
-@views.route("/courses")
+@views.route("/student/courses")
 def courses():
     username=session.get("username")
     if not username:
@@ -48,7 +48,7 @@ def courses():
         return render_template("base.html",error=error)
     return render_template("courses.html")
 
-@views.route("/settings")
+@views.route("/student/settings")
 def settings():
     username=session.get("username")
     uid = session.get("uid")
@@ -57,3 +57,11 @@ def settings():
         error="You are not logged in yet"
         return render_template("base.html",error= error)
     return render_template("settings.html", uid=uid , role=role, username=username)
+
+@views.route("/teacher/profile")
+def teacher_profile():
+    username = session.get("username")
+    if not username:
+        error = "You are not logged in yet"
+        return render_template("base.html", error=error)
+    
