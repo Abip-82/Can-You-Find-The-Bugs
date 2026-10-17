@@ -77,10 +77,12 @@ def teacher_profile():
     
 @views.route("/student/records")
 def records():
-    uid = session.get("uid")
+    uid = request.cookies.get("lab_id")
     username = session.get("username")
     if not username:
         error = "You are not logged in yet"
         return render_template("base.html" , error=error)
-    record = student_records.get(str(uid))
-    return render_template("records.html" , username=username , course=record["course"], gpa=record["gpa"] , feedback=record["feedback"])
+    record = student_records.get(uid)
+    if not records:
+        return "Record not found", 404
+    return render_template("records.html", course=record["course"], gpa=record["gpa"] , feedback=record["feedback"])
