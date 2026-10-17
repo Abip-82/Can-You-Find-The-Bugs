@@ -70,10 +70,7 @@ def teacher_profile():
     if not username:
         error = "You are not logged in yet"
         return render_template("base.html", error=error)
-    if role != "teacher":
-        error = "You are not a teacher bozo"
-        return render_template("base.html", error=error)
-    return f"Hello {username}"
+    return "Nice, you found out one of the vulnerabilities in this lab. A student user is able to access teacher dashboard. This is a typical authorization bug that arises due to lack of proper authorization check. Aight now try finding other bugs too."
     
 @views.route("/student/records")
 def records():
