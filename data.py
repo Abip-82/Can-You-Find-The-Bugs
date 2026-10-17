@@ -26,3 +26,21 @@ users = {
         "password":"lightening"
     }
 }
+
+student_records{
+    "1" : {
+        "course":"Computer Science",
+        "gpa" : "3.5",
+        "feedback": "Doing good so far!"
+    },
+    "2" : {
+        "course" : "Information Technology",
+        "gpa": "3.1",
+        "feedback":"Plenty of room for improvements",
+    },
+    "4" : {
+        "course" : "AI/ML",
+        "gpa" : "3.0",
+        "feedback":"You might be a little cooked my guy"
+    }
+}
