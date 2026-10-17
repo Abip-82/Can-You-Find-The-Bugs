@@ -80,6 +80,8 @@ def records():
         error = "You are not logged in yet"
         return render_template("base.html" , error=error)
     record = student_records.get(uid)
-    if not records:
+    if not record:
+        if (uid == "3"):
+            return "No record exists for this uid because this belongs to a teacher."
         return "Record not found", 404
-    return render_template("records.html", course=record["course"], gpa=record["gpa"] , feedback=record["feedback"])
+    return render_template("records.html",course=record["course"], gpa=record["gpa"] , feedback=record["feedback"])
