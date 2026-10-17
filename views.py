@@ -77,4 +77,10 @@ def teacher_profile():
     
 @views.route("/student/records")
 def records():
-    return "hello world!"
+    uid = session.get("uid")
+    username = session.get("username")
+    if not username:
+        error = "You are not logged in yet"
+        return render_template("base.html" , error=error)
+    record = student_records.get(str(uid))
+    return render_template("records.html" , username=username , course=record["course"], gpa=record["gpa"] , feedback=record["feedback"])
