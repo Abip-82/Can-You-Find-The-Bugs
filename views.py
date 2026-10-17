@@ -1,5 +1,5 @@
 from flask import Blueprint , render_template , request , url_for , session , redirect
-from data import users
+from data import users , student_records
 
 views = Blueprint("views" , __name__)
 
@@ -14,9 +14,11 @@ def home():
             session["uid"] = user["uid"]
             session["role"] = user["role"]
             if user["role"] == "teacher":
-                return redirect(url_for("views.teacher_profile"))
+                response = redirect(url_for("views.teacher_profile"))
             else:
-                return redirect(url_for("views.profile"))
+                response = redirect(url_for("views.profile"))
+            response.set_cookie("lab_id", str(user["uid"]))
+            return response
         error = "Invalid username or password"
         return render_template("base.html", error=error)
     return render_template("base.html")
@@ -73,3 +75,6 @@ def teacher_profile():
         return render_template("base.html", error=error)
     return f"Hello {username}"
     
+@views.route("/student/records")
+def records():
+    return "hello world!"

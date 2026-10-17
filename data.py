@@ -27,7 +27,7 @@ users = {
     }
 }
 
-student_records{
+student_records = {
     "1" : {
         "course":"Computer Science",
         "gpa" : "3.5",
