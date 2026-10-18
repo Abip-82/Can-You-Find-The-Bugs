@@ -66,8 +66,8 @@ I am a totally normal 18 year old who just happened to be interested in web secu
 I built this using Flask (python framework) and basic html/css/js. I didnt use a database and instead used a data.py file to store data because most of the data used are static and this lab is intended to be a small shared lab for everyone. I choose this approach because well obviously I dont want a random guy hamerring my site at 2 am and call it "beginner testing". That is the main reason (defintely not because I ran out of free supabase instances.)
 
 ## Screenshot
-![screenshot1]\(images/ss1.png)
-![screenshot2]\(images/ss2.png)
+![screenshot1](static/images/ss1.png)
+![screenshot2](static/images/ss2.png)
 
 
 ## Conclusion
