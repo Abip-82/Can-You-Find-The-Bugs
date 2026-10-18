@@ -65,6 +65,11 @@ I am a totally normal 18 year old who just happened to be interested in web secu
 ## How I built this
 I built this using Flask (python framework) and basic html/css/js. I didnt use a database and instead used a data.py file to store data because most of the data used are static and this lab is intended to be a small shared lab for everyone. I choose this approach because well obviously I dont want a random guy hamerring my site at 2 am and call it "beginner testing". That is the main reason (defintely not because I ran out of free supabase instances.)
 
+## Screenshot
+![screenshot1](images/ss1.png)
+![screenshot2](images/ss2.png)
+
+
 ## Conclusion
 To sum it up, this is a intentionally vulnerable lab made by Abip Mahat, for beginners to try, learn and get practical experience on web security. If you are a complete beginner trying to enter web security, this is just for you, a learning resource material. If there are any issues with the site, feel free to connect and share.
 
