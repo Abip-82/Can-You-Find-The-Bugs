@@ -30,22 +30,26 @@ Then comes the fourth, missing rate limits, which seem a little not-so-connected
 Now, learning to remediate is just as important as learning to find bugs. As the saying goes, "To be a good builder, you need to know how to break things". Yea, I made that up. dk how it fits. But anyway, here is how to remediate those issues:
 
 1) Remediate IDOR:
-    `@views.route("/student/records")`
-    `def records():`
-    `uid = session.get("uid")`
-    `username = session.get("username")`
-    `if not username:`
-    `error = "You are not logged in yet"`
-    `return render_template("base.html" , error=error)`
-    `record = student_records.get(str(uid))`
-    `return render_template("records.html", course=record["course"], gpa=record["gpa"] , feedback=record["feedback"])`
+    ``` python
+    @views.route("/student/records")
+    def records():
+    uid = session.get("uid")
+    username = session.get("username")
+    if not username:
+        error = "You are not logged in yet"
+        return render_template("base.html" , error=error)
+    record = student_records.get(str(uid))
+    return render_template("records.html", course=record["course"], gpa=record["gpa"] , feedback=record["feedback"])
+    ```
 
     See what I did right there, instead of taking uid from the tamperable cookie, if we take uid from session (which is signed by flask by default so its not tamperable), we can retrieve correct uid and display the records associated with it. So yeah there is not point in inventing the unsigned tamperable cookie in the firsdt place, I jsut made that up to make it vulnerable.
 
 2) Enforcing proper authorization
-    `if role != "teacher":`
-    `error = "You are not a teacher bozo"`
-    `return render_template("base.html", error=error)`
+    ``` python
+    if role != "teacher":
+        error = "You are not a teacher bozo"`
+        return render_template("base.html", error=error)
+    ```
 
     By simply checking if user role is teacher or not when somebody tries to access the teacher dashboard prevents unauthorized access to the teacher dashboard. Literally.
 
